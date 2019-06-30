@@ -1,0 +1,21 @@
+import pandas as pd
+import pickle as pickle
+data = pd.read_csv('D:\\000001.csv', header=None)
+data = data.values
+header=data[:,0]
+val=[[i for i in range(0,4034)]]
+re = pd.DataFrame(val,columns=header)
+header=[i for i in range(0,4034)]
+val=[data[:,0]]
+re1 = pd.DataFrame(val,columns=header)
+
+
+with open('index_date.pkl','wb+') as f:
+    pickle.dump(re, f, 2)
+with open('index_num.pkl','wb+') as f:
+    pickle.dump(re1, f, 2)
+
+pkl_file = open('index_date.pkl', 'rb')
+
+data1 = pickle.load(pkl_file)
+print(data1)

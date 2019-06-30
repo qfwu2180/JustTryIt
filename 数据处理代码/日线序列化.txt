@@ -1,0 +1,69 @@
+import pandas as pd
+import pickle as pickle
+
+name = pd.read_csv('D:\\name.csv',header=None)
+name = name.values
+pkl_file = open('index_date.pkl', 'rb')
+arr = pickle.load(pkl_file)
+pkl1_file = open('index_num.pkl', 'rb')
+arr1 = pickle.load(pkl1_file)
+#创建一个空的dataframe
+
+for k in range(0,name.shape[0]):
+    result = pd.DataFrame()
+    data = pd.read_csv('D:\\new_tdx\\T0002\\export\\' + name[k, 0] + '.txt', header=None,encoding='gb2312')
+    data.drop([data.shape[0]-1],inplace=True)
+    data.to_csv('D:\\SH\\' +name[k, 0] + '.csv',encoding = "utf-8",index=False,header=False)
+    data = pd.read_csv('D:\\SH\\' + name[k, 0] + '.csv', header=None)
+    data1 = data.values
+    p = 20020104.0
+
+    if data1[0, 0] != p:
+        list = []
+        tem = []
+        list.append('')
+        list.append('')
+        list.append(p)
+        tem.append(list)
+        result = result.append(pd.DataFrame(tem, columns=['close', 'volume', 'index']), ignore_index=True, sort=False)
+        list = []
+        tem = []
+
+    for i in range(0, data1.shape[0]):
+        a = arr.loc[:, data1[i, 0]]
+        b = arr.loc[:, p]
+        list = []
+        tem = []
+        for j in range(b[0] + 1, a[0]):
+            list.append('')
+            list.append('')
+            list.append(arr1.loc[0, j])
+            if len(list) != 0:
+                tem.append(list)
+                result = result.append(pd.DataFrame(tem, columns=['close', 'volume', 'index']), ignore_index=True,
+                                       sort=False)
+                list = []
+                tem = []
+
+        p = data1[i, 0]
+        list.append(data.iloc[i, 4])
+        list.append(data.iloc[i, 5])
+        list.append(p)
+
+        tem.append(list)
+        result = result.append(pd.DataFrame(tem, columns=['close', 'volume', 'index']), ignore_index=True, sort=False)
+    result = result.set_index('index')
+
+    with open(name[k, 0] + '.pkl', 'wb+') as f:
+        pickle.dump(result, f, 2)
+    result.to_csv(name[k, 0] + '.csv',encoding = "utf-8")
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,41 @@
+import baostock as bs
+import pandas as pd
+data = pd.read_csv('D:\\name.csv',header=None)
+data = data.values
+p=data.shape[0]#行数
+puda = pd.DataFrame()
+
+# 登陆系统
+lg = bs.login()
+# 显示登陆返回信息
+print('login respond error_code:'+lg.error_code)
+print('login respond  error_msg:'+lg.error_msg)
+
+# 查询季频估值指标盈利能力
+for i in range(0,p):
+    for j in range(2007, 2018):
+        for k in range(4, 5):
+            if j==2018 and k==2:
+                break
+            temp=[]
+            profit_tem = [j,k,data[i, 0]]
+            profit_list=[]
+            rs_profit = bs.query_balance_data(code=data[i, 0], year=j, quarter=k)
+            while (rs_profit.error_code == '0') & rs_profit.next():
+                temp=rs_profit.get_row_data()
+                profit_tem.append(temp[1])
+            print(profit_tem)
+
+            if len(profit_tem)!=4:
+                profit_tem.append('')
+            profit_list.append(profit_tem)
+            puda_profit1 = pd.DataFrame(profit_list, columns=None)
+            puda=puda.append(puda_profit1,ignore_index=True,sort=False)
+
+date=pd.to_datetime(puda.iloc[:,3],format='%Y/%m/%d')
+date=date.dt.strftime('%Y%m%d')
+puda.iloc[:,3]=date
+puda.to_csv("D:\\publish_date.csv", encoding="gbk", index=0)
+# 登出系统
+bs.logout()
+

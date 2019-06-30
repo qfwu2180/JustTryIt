@@ -1,0 +1,75 @@
+DIR D:\new_tdx\T0002\export /b >D:\name.csv
+
+hqreader -d hf -o D:/TDX/13.csv D:/new_tdx/vipdoc/cw/gpcw20071231.dat
+hqreader -d hf -o D:/TDX/17.csv D:/new_tdx/vipdoc/cw/gpcw20081231.dat
+hqreader -d hf -o D:/TDX/21.csv D:/new_tdx/vipdoc/cw/gpcw20091231.dat
+hqreader -d hf -o D:/TDX/25.csv D:/new_tdx/vipdoc/cw/gpcw20101231.dat
+hqreader -d hf -o D:/TDX/29.csv D:/new_tdx/vipdoc/cw/gpcw20111231.dat
+hqreader -d hf -o D:/TDX/33.csv D:/new_tdx/vipdoc/cw/gpcw20121231.dat
+hqreader -d hf -o D:/TDX/37.csv D:/new_tdx/vipdoc/cw/gpcw20131231.dat
+hqreader -d hf -o D:/TDX/41.csv D:/new_tdx/vipdoc/cw/gpcw20141231.dat
+hqreader -d hf -o D:/TDX/45.csv D:/new_tdx/vipdoc/cw/gpcw20151231.dat
+hqreader -d hf -o D:/TDX/49.csv D:/new_tdx/vipdoc/cw/gpcw20161231.dat
+hqreader -d hf -o D:/TDX/53.csv D:/new_tdx/vipdoc/cw/gpcw20171231.dat
+
+
+hqreader -d hf -o D:/TDX/10.csv D:/new_tdx/vipdoc/cw/gpcw20070331.dat
+hqreader -d hf -o D:/TDX/11.csv D:/new_tdx/vipdoc/cw/gpcw20070630.dat
+hqreader -d hf -o D:/TDX/12.csv D:/new_tdx/vipdoc/cw/gpcw20070930.dat
+hqreader -d hf -o D:/TDX/13.csv D:/new_tdx/vipdoc/cw/gpcw20071231.dat
+
+hqreader -d hf -o D:/TDX/14.csv D:/new_tdx/vipdoc/cw/gpcw20080331.dat
+hqreader -d hf -o D:/TDX/15.csv D:/new_tdx/vipdoc/cw/gpcw20080630.dat
+hqreader -d hf -o D:/TDX/16.csv D:/new_tdx/vipdoc/cw/gpcw20080930.dat
+hqreader -d hf -o D:/TDX/17.csv D:/new_tdx/vipdoc/cw/gpcw20081231.dat
+
+hqreader -d hf -o D:/TDX/18.csv D:/new_tdx/vipdoc/cw/gpcw20090331.dat
+hqreader -d hf -o D:/TDX/19.csv D:/new_tdx/vipdoc/cw/gpcw20090630.dat
+hqreader -d hf -o D:/TDX/20.csv D:/new_tdx/vipdoc/cw/gpcw20090930.dat
+hqreader -d hf -o D:/TDX/21.csv D:/new_tdx/vipdoc/cw/gpcw20091231.dat
+
+hqreader -d hf -o D:/TDX/22.csv D:/new_tdx/vipdoc/cw/gpcw20100331.dat
+hqreader -d hf -o D:/TDX/23.csv D:/new_tdx/vipdoc/cw/gpcw20100630.dat
+hqreader -d hf -o D:/TDX/24.csv D:/new_tdx/vipdoc/cw/gpcw20100930.dat
+hqreader -d hf -o D:/TDX/25.csv D:/new_tdx/vipdoc/cw/gpcw20101231.dat
+
+hqreader -d hf -o D:/TDX/26.csv D:/new_tdx/vipdoc/cw/gpcw20110331.dat
+hqreader -d hf -o D:/TDX/27.csv D:/new_tdx/vipdoc/cw/gpcw20110630.dat
+hqreader -d hf -o D:/TDX/28.csv D:/new_tdx/vipdoc/cw/gpcw20110930.dat
+hqreader -d hf -o D:/TDX/29.csv D:/new_tdx/vipdoc/cw/gpcw20111231.dat
+
+hqreader -d hf -o D:/TDX/30.csv D:/new_tdx/vipdoc/cw/gpcw20120331.dat
+hqreader -d hf -o D:/TDX/31.csv D:/new_tdx/vipdoc/cw/gpcw20120630.dat
+hqreader -d hf -o D:/TDX/32.csv D:/new_tdx/vipdoc/cw/gpcw20120930.dat
+hqreader -d hf -o D:/TDX/33.csv D:/new_tdx/vipdoc/cw/gpcw20121231.dat
+
+hqreader -d hf -o D:/TDX/34.csv D:/new_tdx/vipdoc/cw/gpcw20130331.dat
+hqreader -d hf -o D:/TDX/35.csv D:/new_tdx/vipdoc/cw/gpcw20130630.dat
+hqreader -d hf -o D:/TDX/36.csv D:/new_tdx/vipdoc/cw/gpcw20130930.dat
+hqreader -d hf -o D:/TDX/37.csv D:/new_tdx/vipdoc/cw/gpcw20131231.dat
+
+hqreader -d hf -o D:/TDX/38.csv D:/new_tdx/vipdoc/cw/gpcw20140331.dat
+hqreader -d hf -o D:/TDX/39.csv D:/new_tdx/vipdoc/cw/gpcw20140630.dat
+hqreader -d hf -o D:/TDX/40.csv D:/new_tdx/vipdoc/cw/gpcw20140930.dat
+hqreader -d hf -o D:/TDX/41.csv D:/new_tdx/vipdoc/cw/gpcw20141231.dat
+
+hqreader -d hf -o D:/TDX/42.csv D:/new_tdx/vipdoc/cw/gpcw20150331.dat
+hqreader -d hf -o D:/TDX/43.csv D:/new_tdx/vipdoc/cw/gpcw20150630.dat
+hqreader -d hf -o D:/TDX/44.csv D:/new_tdx/vipdoc/cw/gpcw20150930.dat
+hqreader -d hf -o D:/TDX/45.csv D:/new_tdx/vipdoc/cw/gpcw20151231.dat
+
+hqreader -d hf -o D:/TDX/46.csv D:/new_tdx/vipdoc/cw/gpcw20160331.dat
+hqreader -d hf -o D:/TDX/47.csv D:/new_tdx/vipdoc/cw/gpcw20160630.dat
+hqreader -d hf -o D:/TDX/48.csv D:/new_tdx/vipdoc/cw/gpcw20160930.dat
+hqreader -d hf -o D:/TDX/49.csv D:/new_tdx/vipdoc/cw/gpcw20161231.dat
+
+hqreader -d hf -o D:/TDX/50.csv D:/new_tdx/vipdoc/cw/gpcw20170331.dat
+hqreader -d hf -o D:/TDX/51.csv D:/new_tdx/vipdoc/cw/gpcw20170630.dat
+hqreader -d hf -o D:/TDX/52.csv D:/new_tdx/vipdoc/cw/gpcw20170930.dat
+hqreader -d hf -o D:/TDX/53.csv D:/new_tdx/vipdoc/cw/gpcw20171231.dat
+
+hqreader -d hf -o D:/TDX/54.csv D:/new_tdx/vipdoc/cw/gpcw20180331.dat
+
+
+
+006 199 202 095 001 074 238

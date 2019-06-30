@@ -1,0 +1,86 @@
+
+import pandas as pd
+import glob,os,sys
+import numpy as np
+from sklearn.preprocessing import MinMaxScaler
+
+name = pd.read_csv('D:\\name1.csv',header=None)
+dd = pd.read_csv('D:\\publish_date.csv',header=0)
+name = name.values
+result = pd.DataFrame()
+all_files=glob.glob('D:/TDX/*.csv')
+all_files.sort()
+data_all = []
+print(all_files)
+
+for file in all_files:
+    data_temp = pd.read_csv(file, header=0, index_col=None)
+    data_temp.drop_duplicates(['code'], inplace=True, keep='first')
+    data_temp.set_index('code', inplace=True)
+    data_all.append(data_temp)
+
+for z in range(0,name.shape[0]):
+    i = 0
+    for j in range(2007, 2018):
+        for k in range(4, 5):
+            if j == 2018 and k == 2:
+                break
+            tem = [j, k, name[z, 0]]
+            list = []
+            data = data_all[i]
+            i = i + 1
+
+            try:
+                data = data.loc[name[z, 0]]
+            except:
+                for u in range(0, 13):
+                    tem.append('')
+                list.append(tem)
+                result_profit1 = pd.DataFrame(list, columns=None)
+                result = result.append(result_profit1, ignore_index=True, sort=False)
+            else:
+
+                tem.append('')
+                tem.append(data[0])
+                tem.append(data['col159'])
+                tem.append(data['col160'])
+                tem.append(data['col172'])
+                tem.append(data['col173'])
+                tem.append(data['col174'])
+                tem.append(data['col72'])
+                tem.append(data['col73'])
+                tem.append(data['col96'])
+                tem.append(data['col150'])
+                tem.append(data['col158'])
+                tem.append(data['col238'])
+
+                list.append(tem)
+                result_profit1 = pd.DataFrame(list, columns=None)
+                result = result.append(result_profit1, ignore_index=True, sort=False)
+result.iloc[:,3]=dd.iloc[:,3]
+
+for i in range(0,result.shape[0]):
+    for j in range(5,result.shape[1]):
+        if result.iloc[i,j]=='':
+            result.iloc[i, j]=np.nan
+        elif result.iloc[i,j]<-10000000000000:
+            result.iloc[i, j]=np.nan
+
+
+result=result.dropna()
+
+for i in range(0,result.shape[0]):
+    result.iloc[i,10]=result.iloc[i,10]/result.iloc[i,15]
+    result.iloc[i, 11] = result.iloc[i, 11] / result.iloc[i, 15]
+    result.iloc[i, 12] = result.iloc[i, 12] / result.iloc[i, 15]
+    result.iloc[i, 13] = result.iloc[i, 13] / result.iloc[i, 15]
+    result.iloc[i, 14] = result.iloc[i, 14] / result.iloc[i, 15]
+result=result.iloc[:,0:15]
+for i in range(5, 15):
+    temp = result.iloc[:, i].values.reshape(-1, 1)
+    scaler = MinMaxScaler().fit(temp)
+    temp = scaler.transform(temp)
+    result.iloc[:, i] = temp
+result.to_csv("D:\\balance_sheet.csv", encoding="gbk", index=False)
+
+

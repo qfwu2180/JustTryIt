@@ -1,0 +1,19 @@
+# coding=utf-8
+
+import xlrd
+import tushare as ts
+import matplotlib.pyplot as plt
+stock_9 = ts.get_k_data(code='601808', start='2013-09-01', end='2018-09-01')
+stock_9.to_excel('D:/stock_9.xlsx')
+data = xlrd.open_workbook('D:/stock_9.xlsx')
+table = data.sheet_by_name('Sheet1')
+list = table.col_values(colx=3, start_rowx=1, end_rowx=-1)
+# print(list)
+x = []
+y = []
+# print(len(list))
+for i in range(0, 1071):
+    x.append(i)
+    y.append(list[i])
+plt.plot(x, y)
+plt.show()
